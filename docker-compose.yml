@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  lottery-system:
+    image: lottery-system
+    build: ./
+    volumes:
+      - ./storage:/app/storage
+    command: ["gunicorn", "--conf", "/app/config/gunicorn_conf.py", "--bind", "0.0.0.0:8080", "main:app"]
+    ports:
+      - "8080:8080"

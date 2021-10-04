@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ note }}</h2>
+<label for="start">Date: </label>
+
+<form action="" method = "POST">
+<input type="date" id="start" name="date"
+       value="{{ today }}"
+       min="2018-01-01" max="2022-12-31">
+<input type = "submit" value = "Check"/>
+    {% if winner %}
+<h3>Winner: {{ winner.username }}<br>
+    Lottery: {{ winner.lottery_name}}<br>
+    Ballot Number: {{ winner.ballot_number }}</h3>
+    {% elif no_winner %}
+    <h3> No winners for specified date </h3>
+    {% endif %}
+</form>
+
+{% if redirect_login %}
+<a href="{{ url_for('login')}}">Login Here</a>
+{% elif redirect_register %}
+<a href = "{{url_for('register') }}">Sign Up here</a>
+{% endif %}
+{% endblock %}

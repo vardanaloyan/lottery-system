@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ note }}</h2>
+{% if redirect_login %}
+<a href="{{ url_for('login')}}">Login Here</a>
+{% elif redirect_register %}
+<a href = "{{url_for('register') }}">Sign Up here</a>
+{% endif %}
+{% endblock %}

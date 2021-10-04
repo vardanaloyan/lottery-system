@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome <b>{{ current_user.username }}</b></h2>
+{% if lotteries %}
+<p> We have following active lotteries</p>
+{% else %}
+<h3> We don't have active lotteries</h3>
+{% endif %}
+<ul>
+{% for lot in lotteries %}
+<form action="" method = "POST">
+    <input type="hidden" name = "lottery_name" value="{{ lot.lottery_name }}">
+    <li><input type = "submit" value = "{{ lot.lottery_name }}"/><b>   {{ lot.lottery_count }} ballot(s) </b></li>
+</form>
+{% endfor %}
+</ul>
+<a href="{{ url_for('logout')}}">Logout Here</a>
+{% endblock %}

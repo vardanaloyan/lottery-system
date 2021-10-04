@@ -1,0 +1,6 @@
+SQLALCHEMY_DATABASE_URI = "sqlite:///storage/lottery_system.db"
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+SCHEDULER_API_ENABLED = True
+SCHEDULER_TIMEZONE = "UTC"
+SECRET_KEY = "s_trOnG_pa$$w0rD"
+DEBUG = False
